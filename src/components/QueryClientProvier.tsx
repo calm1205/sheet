@@ -8,6 +8,4 @@ const queryClient = new QueryClient();
 
 export const QueryClientProvider: React.FC<{ children: ReactNode }> = ({
   children,
-}) => {
-  return <Provider client={queryClient}>{children}</Provider>;
-};
+}) => <Provider client={queryClient}>{children}</Provider>;

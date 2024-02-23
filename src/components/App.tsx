@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useQuery } from "@tanstack/react-query";
 import { request } from "graphql-request";
 import { SheetUI } from "./Sheet.ui";
-import { allFilmsDocument } from "./graphql/allFilms";
+import { allFilmsDocument } from "../graphql/allFilms";
 
 const END_POINT = "https://swapi-graphql.netlify.app/.netlify/functions/index";
 

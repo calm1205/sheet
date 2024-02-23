@@ -6,6 +6,7 @@ export const SheetUI: React.FC = () => {
   return (
     <div style={sheetStyle}>
       <ColumnUI />
+
       {[...Array(10)].map((_, i) => (
         <RowUI key={i} />
       ))}
