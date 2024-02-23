@@ -14,7 +14,6 @@ export const Sheet: React.FC = () => {
     mode: "onBlur",
   });
   const { fields } = useFieldArray({ control, name: "films" });
-  console.log("fields", fields);
 
   const onSubmit = (data: unknown) => console.log("submit data: ", data);
 
