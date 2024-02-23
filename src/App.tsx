@@ -1,34 +1,15 @@
 import { useForm } from "react-hook-form";
 import { useQuery } from "@tanstack/react-query";
-import { request, gql } from "graphql-request";
+import { request } from "graphql-request";
+import { SheetUI } from "./Sheet.ui";
+import { allFilmsDocument } from "./graphql/allFilms";
 
-const endpoint = "https://swapi-graphql.netlify.app/.netlify/functions/index";
-const gqlDocument = gql`
-  query {
-    allFilms {
-      films {
-        title
-        director
-        releaseDate
-        speciesConnection {
-          species {
-            name
-            classification
-            homeworld {
-              name
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+const END_POINT = "https://swapi-graphql.netlify.app/.netlify/functions/index";
 
 export const App = () => {
   const { data } = useQuery({
-    queryFn: async () => {
-      return await request(endpoint, gqlDocument);
-    },
+    queryKey: ["allFilms"],
+    queryFn: async () => request(END_POINT, allFilmsDocument),
   });
 
   console.log(data);
@@ -40,10 +21,14 @@ export const App = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("firstName")} />
-      <input {...register("lastName")} />
-      <input type="submit" />
-    </form>
+    <>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register("firstName")} />
+        <input {...register("lastName")} />
+        <input type="submit" />
+      </form>
+
+      <SheetUI />
+    </>
   );
 };
