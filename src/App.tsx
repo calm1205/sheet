@@ -1,3 +1,17 @@
+import { useForm } from "react-hook-form";
+
 export const App = () => {
-  return <h1>Vite + React</h1>;
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("firstName")} />
+      <input {...register("lastName")} />
+      <input type="submit" />
+    </form>
+  );
 };
