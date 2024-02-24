@@ -1,16 +1,12 @@
 import React, { CSSProperties } from "react";
 import { SheetHeader } from "./SheetHeader";
-import request from "graphql-request";
-import { AllFilms, allFilmsDocument } from "../graphql/allFilms";
+import { getAllFilms } from "../graphql/allFilms";
 import { useFieldArray, useForm } from "react-hook-form";
 import { CellInput } from "./CellInput";
 
-const END_POINT = "https://swapi-graphql.netlify.app/.netlify/functions/index";
-
 export const Sheet: React.FC = () => {
   const { control, register, handleSubmit } = useForm({
-    defaultValues: async () =>
-      (await request<AllFilms>(END_POINT, allFilmsDocument)).allFilms,
+    defaultValues: getAllFilms,
   });
   const { fields } = useFieldArray({ control, name: "films" });
 

@@ -1,4 +1,5 @@
-import { gql } from "graphql-request";
+import request, { gql } from "graphql-request";
+import { END_POINT } from "../constants";
 
 export const allFilmsDocument = gql`
   query {
@@ -21,6 +22,9 @@ export const allFilmsDocument = gql`
     }
   }
 `;
+
+export const getAllFilms = async () =>
+  (await request<AllFilms>(END_POINT, allFilmsDocument)).allFilms;
 
 export type AllFilms = {
   allFilms: {
