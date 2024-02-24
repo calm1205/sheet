@@ -1,8 +1,8 @@
 import { CSSProperties, ReactNode } from "react";
 
-export const Cell: React.FC<{ children: ReactNode }> = ({ children }) => {
-  return <div style={cellStyle}>{children}</div>;
-};
+export const Cell: React.FC<{ children: ReactNode }> = ({ children }) => (
+  <div style={cellStyle}>{children}</div>
+);
 
 const cellStyle: CSSProperties = {
   borderRight: "1px solid #ccc",
