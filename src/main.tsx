@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./components/App.tsx";
-import { QueryClientProvider } from "./components/QueryClientProvier";
+import { QueryClientProvider } from "@/components/providers/QueryClientProvier";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
