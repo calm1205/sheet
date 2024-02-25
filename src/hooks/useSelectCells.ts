@@ -1,5 +1,5 @@
-import { CellIndex } from "../types/cell";
-import { SelectedCell, selectedCellAtom } from "../jotai/selectedCell";
+import { CellIndex } from "@/types/cell";
+import { SelectedCell, selectedCellAtom } from "@/jotai/selectedCell";
 import { useSetAtom } from "jotai";
 
 export const useSelectCells = () => {

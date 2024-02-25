@@ -1,5 +1,5 @@
 import { atom } from "jotai";
-import { CellIndex } from "../types/cell";
+import { CellIndex } from "@/types/cell";
 
 type IsSelected = boolean;
 

@@ -1,3 +1,3 @@
-import { Sheet } from "./Sheet";
+import { SampleSheet } from "./SampleSheet";
 
-export const App = () => <Sheet />;
+export const App = () => <SampleSheet />;
