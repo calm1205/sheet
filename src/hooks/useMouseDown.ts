@@ -4,7 +4,7 @@ import { getCellArea } from "@/libs/getCellArea";
 import {
   firstSelectedCellContext,
   setFirstSelectedCellContext,
-} from "@/components/providers/FirstSelectedCellProvider";
+} from "@/components/providers/FirstSelectedCellContext";
 import { useSelectCells } from "./useSelectCells";
 
 /** セルの選択処理 */
