@@ -3,10 +3,11 @@ import { Cell } from "./Cell";
 import { UseFormRegisterReturn } from "react-hook-form";
 
 export const CellInput: React.FC<{
+  grid: `${number}-${number}`;
   register: UseFormRegisterReturn;
-}> = ({ register }) => (
+}> = ({ grid, register }) => (
   <Cell>
-    <input style={inputStyle} {...register} />
+    <input data-grid={grid} style={inputStyle} {...register} />
   </Cell>
 );
 

@@ -19,13 +19,23 @@ export const Sheet: React.FC = () => {
       <form onBlur={handleSubmit(onSubmit)}>
         {fields.map((field, index) => (
           <div key={field.id} style={rowCells}>
-            <CellInput register={register(`films.${index}.title`)} />
-            <CellInput register={register(`films.${index}.director`)} />
-            <CellInput register={register(`films.${index}.releaseDate`)} />
+            <CellInput
+              grid={`0-${index}`}
+              register={register(`films.${index}.title`)}
+            />
+            <CellInput
+              grid={`1-${index}`}
+              register={register(`films.${index}.director`)}
+            />
+            <CellInput
+              grid={`2-${index}`}
+              register={register(`films.${index}.releaseDate`)}
+            />
 
             <div style={verticalCells}>
               {field.speciesConnection?.species.map((_, index2) => (
                 <CellInput
+                  grid={`3-${index}`}
                   key={`${field.id}_${index2}`}
                   register={register(
                     `films.${index}.speciesConnection.species.${index2}.name`
