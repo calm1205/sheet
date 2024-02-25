@@ -15,9 +15,7 @@ export const CellInput: React.FC<{
     <Cell>
       <input
         onMouseEnter={() => onMouseEnter(grid)}
-        onMouseDown={(e) => {
-          onMouseDown(e, grid);
-        }}
+        onMouseDown={(e) => onMouseDown(e, grid)}
         data-grid={grid}
         style={inputStyle}
         {...register}

@@ -7,4 +7,4 @@ export const mouseDownContext = createContext<MutableRefObject<boolean>>({
 export type Callback = (ref: MutableRefObject<boolean>) => void;
 export const setMouseDownContext = createContext<
   (args: boolean | Callback) => void
->((_) => _);
+>((_) => console.log("最初のcallback", _));

@@ -16,6 +16,7 @@ export const MouseDownProvider: React.FC<PropsWithChildren> = ({
 }) => {
   const ref = useRef<boolean>(false);
   const setRef = (args: boolean | Callback) => {
+    console.log("overrideされたcallback");
     if (typeof args === "function") args(ref);
     if (typeof args !== "function") ref.current = args;
   };
