@@ -1,19 +1,10 @@
-import {
-  createContext,
-  PropsWithChildren,
-  useRef,
-  MutableRefObject,
-} from "react";
+import { PropsWithChildren, useRef } from "react";
 import { CellIndex } from "@/types/cell";
-
-export const firstSelectedCellContext = createContext<
-  MutableRefObject<CellIndex>
->({ current: `0-0` });
-
-type Callback = (ref: MutableRefObject<CellIndex>) => void;
-export const setFirstSelectedCellContext = createContext<
-  (args: CellIndex | Callback) => void
->((_) => _);
+import {
+  Callback,
+  firstSelectedCellContext,
+  setFirstSelectedCellContext,
+} from "./FirstSelectedCellContext";
 
 /**
  * 最初に選択されたセルのIndex管理

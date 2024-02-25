@@ -1,18 +1,9 @@
+import { PropsWithChildren, useRef } from "react";
 import {
-  createContext,
-  PropsWithChildren,
-  useRef,
-  MutableRefObject,
-} from "react";
-
-export const mouseDownContext = createContext<MutableRefObject<boolean>>({
-  current: false,
-});
-
-type Callback = (ref: MutableRefObject<boolean>) => void;
-export const setMouseDownContext = createContext<
-  (args: boolean | Callback) => void
->((_) => _);
+  Callback,
+  mouseDownContext,
+  setMouseDownContext,
+} from "./MouseDownContext";
 
 /**
  * マウスがクリックされているか監視
@@ -25,6 +16,7 @@ export const MouseDownProvider: React.FC<PropsWithChildren> = ({
 }) => {
   const ref = useRef<boolean>(false);
   const setRef = (args: boolean | Callback) => {
+    console.log("setRef");
     if (typeof args === "function") args(ref);
     if (typeof args !== "function") ref.current = args;
   };
