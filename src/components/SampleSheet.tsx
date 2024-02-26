@@ -36,7 +36,7 @@ export const SampleSheet: React.FC = () => {
             <div style={verticalCells}>
               {field.speciesConnection?.species.map((_, index2) => (
                 <CellInput
-                  grid={`3-${index}`}
+                  grid={`3-${index2}`}
                   key={`${field.id}_${index2}`}
                   register={register(
                     `films.${index}.speciesConnection.species.${index2}.name`
