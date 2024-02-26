@@ -11,7 +11,7 @@ type ReIndexing = (
  * tsvからcellのindexを再計算
  */
 export const reIndexing: ReIndexing = (clipboard, targetIndex) => {
-  const isSingleCell = !clipboard.includes("\t");
+  const isSingleCell = !clipboard.includes("\t") && !clipboard.includes("\n");
 
   const targetDom = document.querySelector(`[data-index="${targetIndex}"]`);
   const targetName = targetDom?.getAttribute("name") ?? "";
