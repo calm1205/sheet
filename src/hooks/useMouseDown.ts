@@ -1,16 +1,12 @@
 import { MouseEvent, useContext } from "react";
 import { CellIndex } from "@/types/cell";
 import { getCellArea } from "@/libs/getCellArea";
-import {
-  firstSelectedCellContext,
-  setFirstSelectedCellContext,
-} from "@/components/providers/FirstSelectedCellContext";
+import { firstSelectedCellContext } from "@/components/providers/FirstSelectedCellProvider";
 import { useSelectCells } from "./useSelectCells";
 
 /** セルの選択処理 */
 export const useMouseDown = () => {
   const firstSelectedCell = useContext(firstSelectedCellContext);
-  const setFirstSelectedCell = useContext(setFirstSelectedCellContext);
 
   const selectCells = useSelectCells();
 
@@ -25,7 +21,7 @@ export const useMouseDown = () => {
       return;
     }
     selectCells([ownCell]);
-    setFirstSelectedCell(ownCell);
+    firstSelectedCell.current = ownCell;
   };
 
   return onMouseDown;

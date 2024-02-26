@@ -1,14 +1,14 @@
 import { ReactNode, useContext } from "react";
-import { setMouseDownContext } from "./providers/MouseDownContext";
+import { mouseDownContext } from "./providers/MouseDownProvider";
 
 export const MouseDownHandler: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const setMouseDown = useContext(setMouseDownContext);
+  const mouseDownRef = useContext(mouseDownContext);
   return (
     <div
-      onMouseDown={() => setMouseDown(true)}
-      onMouseUp={() => setMouseDown(false)}
+      onMouseDown={() => (mouseDownRef.current = true)}
+      onMouseUp={() => (mouseDownRef.current = false)}
     >
       {children}
     </div>

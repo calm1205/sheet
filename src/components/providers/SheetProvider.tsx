@@ -5,12 +5,10 @@ import { MouseDownHandler } from "../MouseDownHandler";
 
 export const SheetProvider: React.FC<{ children: ReactNode }> = ({
   children,
-}) => {
-  return (
-    <FirstSelectedCellProvider>
-      <MouseDownProvider>
-        <MouseDownHandler>{children}</MouseDownHandler>
-      </MouseDownProvider>
-    </FirstSelectedCellProvider>
-  );
-};
+}) => (
+  <FirstSelectedCellProvider>
+    <MouseDownProvider>
+      <MouseDownHandler>{children}</MouseDownHandler>
+    </MouseDownProvider>
+  </FirstSelectedCellProvider>
+);

@@ -1,9 +1,14 @@
-import { PropsWithChildren, useRef } from "react";
 import {
-  Callback,
-  mouseDownContext,
-  setMouseDownContext,
-} from "./MouseDownContext";
+  MutableRefObject,
+  PropsWithChildren,
+  createContext,
+  useRef,
+} from "react";
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const mouseDownContext = createContext<MutableRefObject<boolean>>({
+  current: false,
+});
 
 /**
  * マウスがクリックされているか監視
@@ -15,17 +20,10 @@ export const MouseDownProvider: React.FC<PropsWithChildren> = ({
   children,
 }) => {
   const ref = useRef<boolean>(false);
-  const setRef = (args: boolean | Callback) => {
-    console.log("overrideされたcallback");
-    if (typeof args === "function") args(ref);
-    if (typeof args !== "function") ref.current = args;
-  };
 
   return (
     <mouseDownContext.Provider value={ref}>
-      <setMouseDownContext.Provider value={setRef}>
-        {children}
-      </setMouseDownContext.Provider>
+      {children}
     </mouseDownContext.Provider>
   );
 };

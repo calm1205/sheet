@@ -1,8 +1,8 @@
 import { CellIndex } from "@/types/cell";
 import { getCellArea } from "../libs/getCellArea";
 import { useCallback, useContext } from "react";
-import { firstSelectedCellContext } from "@/components/providers/FirstSelectedCellContext";
-import { mouseDownContext } from "@/components/providers/MouseDownContext";
+import { firstSelectedCellContext } from "@/components/providers/FirstSelectedCellProvider";
+import { mouseDownContext } from "@/components/providers/MouseDownProvider";
 import { useSelectCells } from "./useSelectCells";
 
 /**
