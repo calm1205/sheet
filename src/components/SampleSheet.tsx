@@ -5,6 +5,8 @@ import { useFieldArray, useForm } from "react-hook-form";
 import { CellInput } from "./CellInput";
 import { Sheet } from "./Sheet";
 
+const SPECIES_COUNT = 3;
+
 export const SampleSheet: React.FC = () => {
   const { control, register, handleSubmit } = useForm({
     defaultValues: getAllFilms,
@@ -21,28 +23,30 @@ export const SampleSheet: React.FC = () => {
         {fields.map((field, index) => (
           <div key={field.id} style={rowCells}>
             <CellInput
-              grid={`0-${index}`}
+              grid={`0-${index * SPECIES_COUNT}`}
               register={register(`films.${index}.title`)}
             />
             <CellInput
-              grid={`1-${index}`}
+              grid={`1-${index * SPECIES_COUNT}`}
               register={register(`films.${index}.director`)}
             />
             <CellInput
-              grid={`2-${index}`}
+              grid={`2-${index * SPECIES_COUNT}`}
               register={register(`films.${index}.releaseDate`)}
             />
 
             <div style={verticalCells}>
-              {field.speciesConnection?.species.map((_, index2) => (
-                <CellInput
-                  grid={`3-${index2}`}
-                  key={`${field.id}_${index2}`}
-                  register={register(
-                    `films.${index}.speciesConnection.species.${index2}.name`
-                  )}
-                />
-              ))}
+              {field.speciesConnection?.species
+                .slice(0, SPECIES_COUNT)
+                .map((_, index2) => (
+                  <CellInput
+                    grid={`3-${index * SPECIES_COUNT + index2}`}
+                    key={`${field.id}_${index2}`}
+                    register={register(
+                      `films.${index}.speciesConnection.species.${index2}.name`
+                    )}
+                  />
+                ))}
             </div>
           </div>
         ))}

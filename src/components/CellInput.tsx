@@ -3,6 +3,7 @@ import { Cell } from "./Cell";
 import { UseFormRegisterReturn } from "react-hook-form";
 import { useMouseDown } from "@/hooks/useMouseDown";
 import { useMouseEnter } from "@/hooks/useMouseEnter";
+import { useCellFocusHandler } from "@/hooks/useCellFocusHandler";
 
 export const CellInput: React.FC<{
   grid: `${number}-${number}`;
@@ -10,6 +11,7 @@ export const CellInput: React.FC<{
 }> = ({ grid, register }) => {
   const onMouseDown = useMouseDown();
   const onMouseEnter = useMouseEnter();
+  const { isFocus } = useCellFocusHandler(grid);
 
   return (
     <Cell>
@@ -17,7 +19,12 @@ export const CellInput: React.FC<{
         onMouseEnter={() => onMouseEnter(grid)}
         onMouseDown={(e) => onMouseDown(e, grid)}
         data-grid={grid}
-        style={inputStyle}
+        style={{
+          ...inputStyle,
+          ...(isFocus
+            ? { backgroundColor: "skyblue" }
+            : { backgroundColor: "white" }),
+        }}
         {...register}
       />
     </Cell>
@@ -29,4 +36,5 @@ const inputStyle: CSSProperties = {
   padding: "10px",
   width: "100%",
   border: "none",
+  outline: "none",
 };
