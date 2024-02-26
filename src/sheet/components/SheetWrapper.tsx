@@ -1,8 +1,8 @@
 import { CSSProperties, ReactNode, useContext } from "react";
 import { mouseDownContext } from "./providers/MouseDownProvider";
-import { useCopyCells } from "@/hooks/useCopyCell";
+import { useCopyCells } from "@/sheet/hooks/useCopyCell";
 import { UseFormGetValues, UseFormSetValue } from "react-hook-form";
-import { usePasteCells } from "@/hooks/usePaste";
+import { usePasteCells } from "@/sheet/hooks/usePaste";
 
 export const SheetWrapper: React.FC<{
   children: ReactNode;

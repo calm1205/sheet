@@ -1,4 +1,4 @@
-import { CellIndex } from "@/types/cell";
+import { CellIndex } from "@/sheet/types/cell";
 import { MutableRefObject, createContext } from "react";
 
 export type Callback = (ref: MutableRefObject<CellIndex>) => void;

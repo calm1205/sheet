@@ -4,7 +4,7 @@ import {
   createContext,
   useRef,
 } from "react";
-import { CellIndex } from "@/types/cell";
+import { CellIndex } from "@/sheet/types/cell";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const firstSelectedCellContext = createContext<
