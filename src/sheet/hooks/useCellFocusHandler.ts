@@ -1,7 +1,7 @@
 import { useMemo, useRef } from "react";
-import { CellIndex } from "../types/cell";
+import { CellIndex } from "@/sheet/types/cell";
 import { selectAtom } from "jotai/utils";
-import { selectedCellAtom } from "../jotai/selectedCell";
+import { selectedCellAtom } from "@/sheet/jotai/selectedCell";
 import { useAtomValue } from "jotai";
 
 /**

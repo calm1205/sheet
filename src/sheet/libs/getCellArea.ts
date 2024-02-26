@@ -1,4 +1,4 @@
-import { CellIndex } from "@/types/cell";
+import { CellIndex } from "@/sheet/types/cell";
 
 /**
  * 選択範囲に含まれるセルを返却

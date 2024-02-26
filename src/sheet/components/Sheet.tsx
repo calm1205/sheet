@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-import { SheetProvider } from "./providers/SheetProvider";
-import { SheetWrapper } from "./SheetWrapper";
+import { SheetProvider } from "@/sheet/components/providers/SheetProvider";
+import { SheetWrapper } from "@/sheet/components/SheetWrapper";
 import { UseFormGetValues, UseFormSetValue } from "react-hook-form";
 
 export const Sheet: React.FC<{

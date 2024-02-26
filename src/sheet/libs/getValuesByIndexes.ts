@@ -1,4 +1,4 @@
-import { CellIndex } from "@/types/cell";
+import { CellIndex } from "@/sheet/types/cell";
 import { UseFormGetValues } from "react-hook-form";
 
 export const getValuesByIndexes = (

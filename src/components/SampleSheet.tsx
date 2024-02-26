@@ -2,8 +2,8 @@ import React, { CSSProperties } from "react";
 import { SheetHeader } from "./SheetHeader";
 import { getAllFilms } from "../graphql/allFilms";
 import { useFieldArray, useForm } from "react-hook-form";
-import { CellInput } from "./CellInput";
-import { Sheet } from "./Sheet";
+import { CellInput } from "@/sheet/components/cells/CellInput";
+import { Sheet } from "@/sheet/components/Sheet";
 
 const SPECIES_COUNT = 3;
 

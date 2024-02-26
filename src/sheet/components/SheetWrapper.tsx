@@ -1,5 +1,5 @@
 import { CSSProperties, ReactNode, useContext } from "react";
-import { mouseDownContext } from "./providers/MouseDownProvider";
+import { mouseDownContext } from "@/sheet/components/providers/MouseDownProvider";
 import { useCopyCells } from "@/sheet/hooks/useCopyCell";
 import { UseFormGetValues, UseFormSetValue } from "react-hook-form";
 import { usePasteCells } from "@/sheet/hooks/usePaste";

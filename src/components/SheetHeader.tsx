@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { CellHeader } from "./CellHeader";
+import { CellHeader } from "@/sheet/components/cells/CellHeader";
 
 export const SheetHeader: React.FC = () => (
   <section style={sectionStyle}>

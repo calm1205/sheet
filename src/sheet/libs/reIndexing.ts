@@ -1,4 +1,4 @@
-import { CellIndex } from "@/types/cell";
+import { CellIndex } from "@/sheet/types/cell";
 
 type ReIndexing = (
   /** clipboardのtext */

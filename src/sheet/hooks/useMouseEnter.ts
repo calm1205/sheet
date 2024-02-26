@@ -1,9 +1,9 @@
-import { CellIndex } from "@/types/cell";
-import { getCellArea } from "../libs/getCellArea";
+import { CellIndex } from "@/sheet/types/cell";
+import { getCellArea } from "@sheet/libs/getCellArea";
 import { useCallback, useContext } from "react";
-import { firstSelectedCellContext } from "@/components/providers/FirstSelectedCellProvider";
-import { mouseDownContext } from "@/components/providers/MouseDownProvider";
-import { selectedCellAtom } from "@/jotai/selectedCell";
+import { firstSelectedCellContext } from "@/sheet/components/providers/FirstSelectedCellProvider";
+import { mouseDownContext } from "@/sheet/components/providers/MouseDownProvider";
+import { selectedCellAtom } from "@/sheet/jotai/selectedCell";
 import { useSetAtom } from "jotai";
 
 /**

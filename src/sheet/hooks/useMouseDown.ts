@@ -1,8 +1,8 @@
 import { MouseEvent, useContext } from "react";
-import { CellIndex } from "@/types/cell";
-import { getCellArea } from "@/libs/getCellArea";
-import { firstSelectedCellContext } from "@/components/providers/FirstSelectedCellProvider";
-import { selectedCellAtom } from "@/jotai/selectedCell";
+import { CellIndex } from "@/sheet/types/cell";
+import { getCellArea } from "@/sheet/libs/getCellArea";
+import { firstSelectedCellContext } from "@/sheet/components/providers/FirstSelectedCellProvider";
+import { selectedCellAtom } from "@/sheet/jotai/selectedCell";
 import { useSetAtom } from "jotai";
 
 /** セルの選択処理 */

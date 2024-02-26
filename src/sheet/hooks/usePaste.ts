@@ -1,6 +1,6 @@
 import { ClipboardEvent, useContext } from "react";
-import { reIndexing } from "@/libs/reIndexing";
-import { firstSelectedCellContext } from "@/components/providers/FirstSelectedCellProvider";
+import { reIndexing } from "@/sheet/libs/reIndexing";
+import { firstSelectedCellContext } from "@/sheet/components/providers/FirstSelectedCellProvider";
 import { UseFormSetValue } from "react-hook-form";
 
 /**

@@ -1,4 +1,4 @@
-import { CellIndex } from "@/types/cell";
+import { CellIndex } from "@/sheet/types/cell";
 
 export const getIndexStructure = (cellIndexes: CellIndex[]) => {
   console.log("cellIndexes: ", cellIndexes);
