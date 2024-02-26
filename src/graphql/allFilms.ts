@@ -26,7 +26,7 @@ export const allFilmsDocument = gql`
 export const getAllFilms = async () =>
   (await request<AllFilms>(END_POINT, allFilmsDocument)).allFilms;
 
-// const DATA_VOLUME = 100; // 既存データの10倍のダミーデータを返す
+// const DATA_VOLUME = 200; // 既存データのn倍のダミーデータを返す
 // /**
 //  * パフォーマンステスト用のダミーデータを返す
 //  */
