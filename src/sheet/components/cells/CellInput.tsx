@@ -1,9 +1,9 @@
 import { CSSProperties } from "react";
 import { Cell } from "./Cell";
 import { UseFormRegisterReturn } from "react-hook-form";
-import { useMouseDown } from "@/hooks/useMouseDown";
-import { useMouseEnter } from "@/hooks/useMouseEnter";
-import { useCellFocusHandler } from "@/hooks/useCellFocusHandler";
+import { useMouseDown } from "@/sheet/hooks/useMouseDown";
+import { useMouseEnter } from "@/sheet/hooks/useMouseEnter";
+import { useCellFocusHandler } from "@/sheet/hooks/useCellFocusHandler";
 
 export const CellInput: React.FC<{
   cellIndex: `${number}-${number}`;

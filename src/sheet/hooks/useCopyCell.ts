@@ -1,7 +1,7 @@
 import { ClipboardEvent, useRef } from "react";
 import { csv2tsv } from "@/sheet/libs/csv2tsv";
 import { useSetAtom } from "jotai";
-import { SelectedCell, selectedCellAtom } from "@/sheet/jotai/selectedCellAtom";
+import { SelectedCell, selectedCellAtom } from "@/sheet/jotai/selectedCell";
 import { getValuesByIndexes } from "@/sheet/libs/getValuesByIndexes";
 import { UseFormGetValues } from "react-hook-form";
 import { getIndexStructure } from "@/sheet/libs/getIndexStructure";

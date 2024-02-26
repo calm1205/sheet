@@ -1,5 +1,5 @@
 import { CellIndex } from "@/sheet/types/cell";
-import { getCellArea } from "@sheet/libs/getCellArea";
+import { getCellArea } from "@/sheet/libs/getCellArea";
 import { useCallback, useContext } from "react";
 import { firstSelectedCellContext } from "@/sheet/components/providers/FirstSelectedCellProvider";
 import { mouseDownContext } from "@/sheet/components/providers/MouseDownProvider";
