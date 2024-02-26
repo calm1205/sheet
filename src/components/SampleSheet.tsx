@@ -8,7 +8,7 @@ import { Sheet } from "./Sheet";
 const SPECIES_COUNT = 3;
 
 export const SampleSheet: React.FC = () => {
-  const { control, register, handleSubmit } = useForm({
+  const { control, register, handleSubmit, getValues } = useForm({
     defaultValues: getAllFilms,
   });
   const { fields } = useFieldArray({ control, name: "films" });
@@ -16,22 +16,22 @@ export const SampleSheet: React.FC = () => {
   const onSubmit = (data: unknown) => console.log("submit data: ", data);
 
   return (
-    <Sheet>
+    <Sheet getValues={getValues}>
       <SheetHeader />
 
       <form onBlur={handleSubmit(onSubmit)}>
         {fields.map((field, index) => (
           <div key={field.id} style={rowCells}>
             <CellInput
-              grid={`0-${index * SPECIES_COUNT}`}
+              cellIndex={`0-${index * SPECIES_COUNT}`}
               register={register(`films.${index}.title`)}
             />
             <CellInput
-              grid={`1-${index * SPECIES_COUNT}`}
+              cellIndex={`1-${index * SPECIES_COUNT}`}
               register={register(`films.${index}.director`)}
             />
             <CellInput
-              grid={`2-${index * SPECIES_COUNT}`}
+              cellIndex={`2-${index * SPECIES_COUNT}`}
               register={register(`films.${index}.releaseDate`)}
             />
 
@@ -40,7 +40,7 @@ export const SampleSheet: React.FC = () => {
                 .slice(0, SPECIES_COUNT)
                 .map((_, index2) => (
                   <CellInput
-                    grid={`3-${index * SPECIES_COUNT + index2}`}
+                    cellIndex={`3-${index * SPECIES_COUNT + index2}`}
                     key={`${field.id}_${index2}`}
                     register={register(
                       `films.${index}.speciesConnection.species.${index2}.name`

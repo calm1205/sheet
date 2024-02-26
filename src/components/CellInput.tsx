@@ -6,19 +6,19 @@ import { useMouseEnter } from "@/hooks/useMouseEnter";
 import { useCellFocusHandler } from "@/hooks/useCellFocusHandler";
 
 export const CellInput: React.FC<{
-  grid: `${number}-${number}`;
+  cellIndex: `${number}-${number}`;
   register: UseFormRegisterReturn;
-}> = ({ grid, register }) => {
+}> = ({ cellIndex, register }) => {
   const onMouseDown = useMouseDown();
   const onMouseEnter = useMouseEnter();
-  const { isFocus } = useCellFocusHandler(grid);
+  const { isFocus } = useCellFocusHandler(cellIndex);
 
   return (
     <Cell>
       <input
-        onMouseEnter={() => onMouseEnter(grid)}
-        onMouseDown={(e) => onMouseDown(e, grid)}
-        data-grid={grid}
+        onMouseEnter={() => onMouseEnter(cellIndex)}
+        onMouseDown={(e) => onMouseDown(e, cellIndex)}
+        data-index={cellIndex}
         style={{
           ...inputStyle,
           ...(isFocus

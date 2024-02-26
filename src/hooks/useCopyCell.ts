@@ -1,0 +1,35 @@
+import { ClipboardEvent, useRef } from "react";
+import { csv2tsv } from "@/libs/csv2tsv";
+import { useSetAtom } from "jotai";
+import { SelectedCell, selectedCellAtom } from "@/jotai/selectedCell";
+import { getValuesByIndexes } from "@/libs/getValuesByIndexes";
+import { UseFormGetValues } from "react-hook-form";
+import { cellIndex2csv } from "@/libs/cellIndex2csv";
+
+/**
+ * 複数セルのコピー
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const useCopyCells = (getValues: UseFormGetValues<any>) => {
+  const setSelectedCell = useSetAtom(selectedCellAtom);
+  const selectedCellRef = useRef<SelectedCell>();
+
+  const copyCells = async (event: ClipboardEvent<Element>) => {
+    event.preventDefault();
+
+    /**
+     * HACK: refを介入させることでuseAtomの再レンダリングを防ぐ。
+     * useAtomValueでCellを取得するとCellの値が変更されるたびにSheet全体が再レンダリングされてしまう。
+     */
+    setSelectedCell((prev) => (selectedCellRef.current = prev));
+    const selectedCell = selectedCellRef.current!;
+    const selectedCellCsv = cellIndex2csv(selectedCell);
+
+    const values = getValuesByIndexes(selectedCellCsv, getValues);
+    const tsv = csv2tsv(values);
+
+    await navigator.clipboard.writeText(tsv);
+  };
+
+  return copyCells;
+};

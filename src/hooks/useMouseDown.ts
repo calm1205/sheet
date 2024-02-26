@@ -2,13 +2,13 @@ import { MouseEvent, useContext } from "react";
 import { CellIndex } from "@/types/cell";
 import { getCellArea } from "@/libs/getCellArea";
 import { firstSelectedCellContext } from "@/components/providers/FirstSelectedCellProvider";
-import { useSelectCells } from "./useSelectCells";
+import { selectedCellAtom } from "@/jotai/selectedCell";
+import { useSetAtom } from "jotai";
 
 /** セルの選択処理 */
 export const useMouseDown = () => {
   const firstSelectedCell = useContext(firstSelectedCellContext);
-
-  const selectCells = useSelectCells();
+  const setSelectedCell = useSetAtom(selectedCellAtom);
 
   const onMouseDown = (event: MouseEvent, ownCell: CellIndex) => {
     // shiftキーを押しながらクリックした場合
@@ -17,10 +17,10 @@ export const useMouseDown = () => {
         start: firstSelectedCell.current,
         end: ownCell,
       });
-      selectCells(cellArea);
+      setSelectedCell(cellArea);
       return;
     }
-    selectCells([ownCell]);
+    setSelectedCell([ownCell]);
     firstSelectedCell.current = ownCell;
   };
 

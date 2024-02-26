@@ -1,16 +1,16 @@
-import React, { CSSProperties, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { SheetProvider } from "./providers/SheetProvider";
+import { SheetWrapper } from "./SheetWrapper";
+import { UseFormGetValues } from "react-hook-form";
 
-export const Sheet: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const Sheet: React.FC<{
+  children: ReactNode;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  getValues: UseFormGetValues<any>;
+}> = ({ children, getValues }) => {
   return (
     <SheetProvider>
-      <div style={sheetStyle}>{children}</div>
+      <SheetWrapper getValues={getValues}>{children}</SheetWrapper>
     </SheetProvider>
   );
-};
-
-const sheetStyle: CSSProperties = {
-  width: "800px",
-  borderTop: "1px solid #ccc",
-  borderLeft: "1px solid #ccc",
 };

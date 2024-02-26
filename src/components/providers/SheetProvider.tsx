@@ -1,14 +1,14 @@
 import React, { ReactNode } from "react";
 import { MouseDownProvider } from "@/components/providers/MouseDownProvider";
 import { FirstSelectedCellProvider } from "@/components/providers/FirstSelectedCellProvider";
-import { MouseDownHandler } from "../MouseDownHandler";
+import { Provider } from "jotai";
 
 export const SheetProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => (
   <FirstSelectedCellProvider>
     <MouseDownProvider>
-      <MouseDownHandler>{children}</MouseDownHandler>
+      <Provider>{children}</Provider>
     </MouseDownProvider>
   </FirstSelectedCellProvider>
 );

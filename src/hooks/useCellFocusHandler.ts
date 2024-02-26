@@ -9,7 +9,7 @@ import { useAtomValue } from "jotai";
  */
 export const useCellFocusHandler = (cellIndex: CellIndex) => {
   const pickSelectedCell = useMemo(
-    () => selectAtom(selectedCellAtom, (v) => v[cellIndex]),
+    () => selectAtom(selectedCellAtom, (v) => v.includes(cellIndex)),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
