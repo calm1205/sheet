@@ -6,7 +6,6 @@ export const getValuesByIndexes = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getValues: UseFormGetValues<any>
 ) => {
-  console.log("indexCsv: ", indexCsv);
   const values = indexCsv.map((indexes) =>
     indexes.map((index) => {
       const name =
