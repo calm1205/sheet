@@ -26,6 +26,20 @@ export const allFilmsDocument = gql`
 export const getAllFilms = async () =>
   (await request<AllFilms>(END_POINT, allFilmsDocument)).allFilms;
 
+// const DATA_VOLUME = 100; // 既存データの10倍のダミーデータを返す
+// /**
+//  * パフォーマンステスト用のダミーデータを返す
+//  */
+// export const getAllFilms = async () => {
+//   const response = await request<AllFilms>(END_POINT, allFilmsDocument);
+
+//   return {
+//     films: response.allFilms.films.flatMap((film) => {
+//       return [...Array(DATA_VOLUME)].map(() => film);
+//     }),
+//   };
+// };
+
 export type AllFilms = {
   allFilms: {
     films: {
