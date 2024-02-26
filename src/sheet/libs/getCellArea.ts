@@ -2,7 +2,6 @@ import { CellIndex } from "@/sheet/types/cell";
 
 /**
  * 選択範囲に含まれるセルを返却
- * useGetCellArea.tsで使用
  * */
 export const getCellArea = (cell: {
   /** 最初に選択されたセル */

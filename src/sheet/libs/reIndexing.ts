@@ -12,10 +12,9 @@ type ReIndexing = (
  */
 export const reIndexing: ReIndexing = (clipboard, targetIndex) => {
   const isSingleCell = !clipboard.includes("\t");
-  const targetName =
-    document
-      .querySelector(`[data-index="${targetIndex}"]`)
-      ?.getAttribute("name") ?? "";
+
+  const targetDom = document.querySelector(`[data-index="${targetIndex}"]`);
+  const targetName = targetDom?.getAttribute("name") ?? "";
   if (isSingleCell) return { [targetName]: clipboard };
 
   const [targetColumn, targetRow] = targetIndex.split("-").map(Number);

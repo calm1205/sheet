@@ -4,6 +4,10 @@ import { useCopyCells } from "@/sheet/hooks/useCopyCell";
 import { UseFormGetValues, UseFormSetValue } from "react-hook-form";
 import { usePasteCells } from "@/sheet/hooks/usePaste";
 
+/**
+ * SheetProviderとは意図的に分けている。
+ * なぜならProviderでラップされていないと使えないhooksを呼び出しているため。
+ */
 export const SheetWrapper: React.FC<{
   children: ReactNode;
   getValues: UseFormGetValues<object>;

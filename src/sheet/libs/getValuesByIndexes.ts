@@ -8,11 +8,10 @@ export const getValuesByIndexes = (
 ) => {
   const values = indexCsv.map((indexes) =>
     indexes.map((index) => {
-      const name =
-        document
-          .querySelector(`[data-index="${index}"]`)
-          ?.getAttribute("name") ?? "";
+      const dom = document.querySelector(`[data-index="${index}"]`);
+      const name = dom?.getAttribute("name") ?? "";
       const value: string = getValues(name) ?? "";
+
       return value;
     })
   );
