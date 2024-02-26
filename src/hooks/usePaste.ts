@@ -1,22 +1,24 @@
 import { ClipboardEvent, useContext } from "react";
-import { reIndexingCell } from "@/libs/reIndexingCell";
-import { useSetAtom } from "jotai";
+import { reIndexing } from "@/libs/reIndexing";
 import { firstSelectedCellContext } from "@/components/providers/FirstSelectedCellProvider";
+import { UseFormSetValue } from "react-hook-form";
 
 /**
  * 複数セルのペースト
  **/
-export const usePasteCells = () => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const usePasteCells = (setValue: UseFormSetValue<any>) => {
   const firstSelectedCell = useContext(firstSelectedCellContext);
-  const setCells = useSetAtom(cellAtom);
 
   const pasteCells = async (event: ClipboardEvent<Element>) => {
     event.preventDefault();
 
     const clipboard = await navigator.clipboard.readText();
-    const sourceCells = reIndexingCell(clipboard, firstSelectedCell.current);
+    const sourceCells = reIndexing(clipboard, firstSelectedCell.current);
 
-    setCells((p) => ({ ...p, ...sourceCells }));
+    Object.entries(sourceCells).forEach(([name, value]) => {
+      setValue(name, value);
+    });
   };
 
   return pasteCells;

@@ -4,13 +4,12 @@ import { useSetAtom } from "jotai";
 import { SelectedCell, selectedCellAtom } from "@/jotai/selectedCell";
 import { getValuesByIndexes } from "@/libs/getValuesByIndexes";
 import { UseFormGetValues } from "react-hook-form";
-import { cellIndex2csv } from "@/libs/cellIndex2csv";
+import { getIndexStructure } from "@/libs/getIndexStructure";
 
 /**
  * 複数セルのコピー
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const useCopyCells = (getValues: UseFormGetValues<any>) => {
+export const useCopyCells = (getValues: UseFormGetValues<object>) => {
   const setSelectedCell = useSetAtom(selectedCellAtom);
   const selectedCellRef = useRef<SelectedCell>();
 
@@ -23,7 +22,7 @@ export const useCopyCells = (getValues: UseFormGetValues<any>) => {
      */
     setSelectedCell((prev) => (selectedCellRef.current = prev));
     const selectedCell = selectedCellRef.current!;
-    const selectedCellCsv = cellIndex2csv(selectedCell);
+    const selectedCellCsv = getIndexStructure(selectedCell);
 
     const values = getValuesByIndexes(selectedCellCsv, getValues);
     const tsv = csv2tsv(values);

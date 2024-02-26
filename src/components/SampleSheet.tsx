@@ -8,15 +8,14 @@ import { Sheet } from "./Sheet";
 const SPECIES_COUNT = 3;
 
 export const SampleSheet: React.FC = () => {
-  const { control, register, handleSubmit, getValues } = useForm({
-    defaultValues: getAllFilms,
-  });
+  const methods = useForm({ defaultValues: getAllFilms });
+  const { control, register, handleSubmit, getValues, setValue } = methods;
   const { fields } = useFieldArray({ control, name: "films" });
 
   const onSubmit = (data: unknown) => console.log("submit data: ", data);
 
   return (
-    <Sheet getValues={getValues}>
+    <Sheet getValues={getValues} setValue={setValue}>
       <SheetHeader />
 
       <form onBlur={handleSubmit(onSubmit)}>
